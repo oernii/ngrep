@@ -199,7 +199,7 @@ int main(int argc, char **argv) {
     signal(SIGWINCH, update_windowsize);
 #endif
 
-    setlocale(LC_ALL, "");
+    //setlocale(LC_ALL, "");
 
 #if !defined(_WIN32)
     {
@@ -1077,7 +1077,8 @@ void dump_byline(unsigned char *data, uint32_t len, uint16_t mindex, uint16_t ms
             if (should_hilite && s == hilite_start)
                 printf("%s", ANSI_hilite);
 
-            printf("%c", (*s == '\n' || isprint(*s)) ? *s : nonprint_char);
+            printf("%c", *s);
+            //printf("%c", (*s == '\n' || isprint(*s)) ? *s : nonprint_char);
             s++;
 
             if (should_hilite && s == hilite_end)
